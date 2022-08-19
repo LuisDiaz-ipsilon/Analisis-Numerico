@@ -17,40 +17,45 @@ Xr=0
 i=0
 Xrold=0
 exit = False
-#-----------------------------------EJECUCION----------------------
+fl=F(Xl)
+fu=F(Xu)
+il=0
+iu=0
 
-#Outpud sera : Xr
-while(exit == False) :
+
+while (True):
 	Xrold = Xr
-	Xr = (Xl+Xu)/2
+	Xr = Xu-fu*(Xl-Xu)/(fl-fu)
+	fr=F(Xr)
 	i=i+1
 	print('-------Itereacion: ')
 	print(i)
-	if(Xr!=0):
-		_Ea = abs(Xr-Xrold)/Xr*100
-
-	test = F(Xl)*F(Xr)
-	if(test<0): 
+	if Xr!=0:
+		_Ea = abs((Xr-Xrold)/Xr)*100
+	test = fl*fr
+	if test < 0:
 		Xu=Xr
-		#print('Xu toma el valor de Xr')
-	elif test>0:
-		Xl=Xr
-		#print('Xl toma el valor de Xr')
-	else :
-		_Ea = 0
-		print('La raiz es Xr')
-		print(Xr)
-
-	if _Ea<_Es:
-		exit = True
-
+		fu=F(Xu)
+		iu=0
+		il=il+1
+		if il >= 2:
+			fl=fl/2
+	elif test > 0:
+		xl = Xr
+		fl = F(Xl)
+		il = 0
+		iu = iu + 1
+		if iu>=2 :
+			fu=fu/2
+		else:
+			_Ea = 0
+	
 
 	print('Error aproximado: (Ea)%')
 	print(_Ea)
 	print('Posible raiz verdadera: (Xr)')
 	print(Xr)
 	print('\n')
-
-
-
-
+	if _Ea < _Es:
+			break 
+	
