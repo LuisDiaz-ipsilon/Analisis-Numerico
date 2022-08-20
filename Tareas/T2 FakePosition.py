@@ -19,7 +19,6 @@ _Ea=00.00 #Error Aproximado
 Xr=0
 i=0
 Xrold=0
-exit = False
 fl=F(Xl)
 fu=F(Xu)
 il=0
@@ -28,7 +27,7 @@ iu=0
 
 while (True):
 	Xrold = Xr
-	Xr = Xu-fu*(Xl-Xu)/(fl-fu)
+	Xr = Xu-(fu*(Xl-Xu))/(fl-fu)
 	fr=F(Xr)
 	i=i+1
 	print('-------Itereacion: ')
