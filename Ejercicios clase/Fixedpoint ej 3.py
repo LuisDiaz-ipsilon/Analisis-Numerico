@@ -30,6 +30,8 @@ while (True) :
 	i=i+1
 	if Xr!=0 :
 		_Ea = abs((Xr-Xrold)/Xr)*100
+	print('Interacion: ')
+	print(i)
 	print('Error aproximado: (Ea)%')
 	print(_Ea)
 	print('Posible raiz verdadera: (Xr)')
