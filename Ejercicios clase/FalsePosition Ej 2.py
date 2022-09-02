@@ -22,8 +22,13 @@ fu=F(Xu)
 il=0
 iu=0
 
+#Validacion de valores a la derecha e izquierda de la raiz que buscamos
+if(F(Xl)*F(Xu)>0.0):
+	print('Deben acotar por la izquierda y derecha la raiz')
+	exit = True
 
-while (True):
+
+while (exit == False):
 	Xrold = Xr
 	Xr = Xu-fu*(Xl-Xu)/(fl-fu)
 	fr=F(Xr)
@@ -57,5 +62,5 @@ while (True):
 	print(Xr)
 	print('\n')
 	if _Ea < _Es:
-			break 
+			exit = True
 	

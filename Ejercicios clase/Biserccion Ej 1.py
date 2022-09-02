@@ -18,6 +18,10 @@ i=0
 Xrold=0
 exit = False
 #-----------------------------------EJECUCION----------------------
+#Validacion de valores a la derecha e izquierda de la raiz que buscamos
+if(F(Xl)*F(Xu)>0):
+	print('Deben acotar por la izquierda y derecha la raiz')
+	exit = True
 
 #Outpud sera : Xr
 while(exit == False) :
